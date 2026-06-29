@@ -61,6 +61,15 @@
             background: #8B4513;
             margin: 20px auto;
         }
+
+        .scroll-bounce {
+            animation: scrollBounce 1.6s ease-in-out infinite;
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); opacity: 0.7; }
+            50% { transform: translateY(6px); opacity: 1; }
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -96,15 +105,19 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <header class="hero-gradient flex flex-col justify-between relative overflow-hidden pt-16" style="min-height: 92vh;">
         <div class="absolute inset-0 bg-[url('mapleside.png')] bg-cover bg-center opacity-30"></div>
 
-        <div class="container mx-auto px-4 z-10 text-center fade-in">
-            <h1 class="title-font text-4xl md:text-6xl font-bold text-white mb-6">Worship & Adoration at Mapleside</h1>
+        <!-- Title sits at the top so the center of the bg image stays open -->
+        <div class="container mx-auto px-4 z-10 pt-10 fade-in">
+            <h1 class="title-font text-4xl md:text-6xl font-bold text-white mb-2 drop-shadow-lg">Worship & Adoration at Mapleside</h1>
+        </div>
 
-            <div style="--tw-bg-opacity: .65;" class="max-w-3xl mx-auto bg-white rounded-lg p-6 floating-shadow">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <div class="mb-4 md:mb-0 text-left">
+        <!-- Info card anchored to the bottom-left -->
+        <div class="container mx-auto px-4 z-10 pb-10 fade-in">
+            <div style="--tw-bg-opacity: .65;" class="max-w-xl bg-white rounded-lg p-6 floating-shadow">
+                <div class="flex flex-col md:flex-row justify-between items-start gap-4">
+                    <div class="text-left">
                         <p class="text-amber-900 font-semibold"><i class="fas fa-calendar-alt mr-2"></i> July 7, 2026</p>
                         <p class="text-gray-700"><i class="fas fa-clock mr-2"></i> 8:00 PM</p>
                     </div>
@@ -114,36 +127,42 @@
                     </div>
                 </div>
 
-                <div class="mt-6">
-                    <div class="countdown-box rounded-lg p-4 inline-block">
-                        <h3 class="text-white font-semibold mb-2">Counting down to the evening!</h3>
-                        <div class="flex justify-center space-x-2" id="countdown">
-                            <div class="bg-white text-amber-900 rounded p-2 text-center min-w-[60px]">
-                                <div class="text-2xl font-bold" id="days">00</div>
+                <div class="mt-4">
+                    <div class="countdown-box rounded-lg p-3 inline-block">
+                        <h3 class="text-white font-semibold mb-2 text-sm">Counting down to the evening!</h3>
+                        <div class="flex space-x-2" id="countdown">
+                            <div class="bg-white text-amber-900 rounded p-2 text-center min-w-[52px]">
+                                <div class="text-xl font-bold" id="days">00</div>
                                 <div class="text-xs">Days</div>
                             </div>
-                            <div class="bg-white text-amber-900 rounded p-2 text-center min-w-[60px]">
-                                <div class="text-2xl font-bold" id="hours">00</div>
+                            <div class="bg-white text-amber-900 rounded p-2 text-center min-w-[52px]">
+                                <div class="text-xl font-bold" id="hours">00</div>
                                 <div class="text-xs">Hours</div>
                             </div>
-                            <div class="bg-white text-amber-900 rounded p-2 text-center min-w-[60px]">
-                                <div class="text-2xl font-bold" id="minutes">00</div>
+                            <div class="bg-white text-amber-900 rounded p-2 text-center min-w-[52px]">
+                                <div class="text-xl font-bold" id="minutes">00</div>
                                 <div class="text-xs">Minutes</div>
                             </div>
-                            <div class="bg-white text-amber-900 rounded p-2 text-center min-w-[60px]">
-                                <div class="text-2xl font-bold" id="seconds">00</div>
+                            <div class="bg-white text-amber-900 rounded p-2 text-center min-w-[52px]">
+                                <div class="text-xl font-bold" id="seconds">00</div>
                                 <div class="text-xs">Seconds</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="mt-8">
+                <div class="mt-6">
                     <a href="#rsvp" class="bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-block">
-                        RSVP Now <i class="fas fa-arrow-right ml-2"></i>
+                        Register for Updates <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
             </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center text-white opacity-70">
+            <span class="text-xs tracking-widest uppercase mb-1">Scroll</span>
+            <i class="fas fa-chevron-down scroll-bounce"></i>
         </div>
     </header>
 
